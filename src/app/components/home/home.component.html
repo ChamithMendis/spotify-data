@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row w-100 justify-content-md-center">
+    <div class="col-md-2 display"></div>
+    <div class="col-md-8">
+      <div class="m-2 p-2 pg-blue-200 rounded-lg shadow-lg">
+        <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+          <div class="row">
+            <mat-form-field class="col-md-7">
+              <input
+                type="text"
+                name=""
+                formControlName="search"
+                id=""
+                matInput
+              />
+            </mat-form-field>
+            <mat-form-field class="col-md-3">
+              <mat-select class="" formControlName="selectItem">
+                @for (searchItem of seachItemList; track searchItem) {
+                <mat-option [value]="searchItem.value">{{
+                  searchItem.viewValue
+                }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <div mat-dialog-action class="row action col-md-2">
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                class="m-2 button-color"
+                type="submit"
+              >
+                {{ "Search" }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- display songs grid -->
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
