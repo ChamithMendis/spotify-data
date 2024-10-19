@@ -44,6 +44,48 @@ export class HomeService {
     };
 
     const url = this.searchUrl + name + '&offset=0&limit=20&type=' + type;
+
+    // if (pageIndex && pageSize) {
+    //   url =
+    //     this.searchUrl +
+    //     name +
+    //     '&offset=' +
+    //     pageIndex * pageSize +
+    //     '&limit=20&type=' +
+    //     type;
+    // } else {
+
+    // }
+    return this._http.get(url, searchParameters);
+  }
+
+  searchNextData(
+    name: String,
+    type: String,
+    offset: any,
+    limit: any
+  ): Observable<any> {
+    const searchParameters = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.getAccessToken(),
+      },
+    };
+
+    const url =
+      this.searchUrl + name + '&offset=' + offset + '&limit=20&type=' + type;
+
+    // if (pageIndex && pageSize) {
+    //   url =
+    //     this.searchUrl +
+    //     name +
+    //     '&offset=' +
+    //     pageIndex * pageSize +
+    //     '&limit=20&type=' +
+    //     type;
+    // } else {
+
+    // }
     return this._http.get(url, searchParameters);
   }
 }

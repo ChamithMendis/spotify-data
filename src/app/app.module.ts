@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { provideHttpClient } from '@angular/common/http';
 import { MatTableExporterModule } from 'mat-table-exporter';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [AppComponent, NavBarComponent, HomeComponent],
@@ -30,6 +31,8 @@ import { MatTableExporterModule } from 'mat-table-exporter';
     MatFormFieldModule,
     MatButtonModule,
     MatTableExporterModule,
+    MatPaginator,
+    MatPaginatorModule,
   ],
   providers: [
     provideClientHydration(),
