@@ -246,9 +246,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   public msToMinutes(ms: any): any {
-    let seconds = ms / 1000;
-    let minutes = seconds / 60;
-    return minutes;
+    const minutes = Math.floor(ms / 60000);
+    const seconds = ((ms % 60000) / 1000).toFixed(0);
+    return minutes + ':' + (+seconds < 10 ? '0' : '') + seconds;
   }
 
   public getAdditionalArtists(artists: any): any {
