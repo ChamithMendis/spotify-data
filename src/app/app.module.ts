@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { provideHttpClient } from '@angular/common/http';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 @NgModule({
   declarations: [AppComponent, NavBarComponent, HomeComponent],
@@ -28,6 +29,7 @@ import { provideHttpClient } from '@angular/common/http';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatTableExporterModule,
   ],
   providers: [
     provideClientHydration(),

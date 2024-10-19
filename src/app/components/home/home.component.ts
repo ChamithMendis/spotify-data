@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   });
 
   displayedColumns: string[] = [
-    'position',
+    // 'position',
     'trackName',
     'primaryArtist',
     'additionalArtist',
@@ -118,6 +118,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
         },
         (error) => {
           console.log(error);
+          if (error.response.status === 401) {
+            this._homeService.requestAccessToken().subscribe(
+              (res: any) => {
+                console.log(res);
+                this._homeService.setAccessToken(res.access_token);
+              },
+              (error) => {
+                console.log(error);
+              }
+            );
+          }
         }
       );
     // this.searchForm.reset();
@@ -135,7 +146,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     items.forEach((element: any) => {
       const dataObject = {
-        position: 0,
+        // position: 0,
         trackName: element.name,
         primaryArtist: element?.artists[0]?.name,
         additionalArtist: this.getAdditionalArtists(element?.artists),
