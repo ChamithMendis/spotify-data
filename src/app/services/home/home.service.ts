@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { URL } from 'url';
 
 @Injectable({
   providedIn: 'root',
@@ -28,11 +29,17 @@ export class HomeService {
   }
 
   getAccessToken() {
-    return JSON.parse(window.localStorage.getItem('auth_token') as string);
+    let url: URL | null = null;
+    if (typeof window !== undefined) {
+      return JSON.parse(window.localStorage.getItem('auth_token') as string);
+    }
   }
 
   setAccessToken(token: any) {
-    window.localStorage.setItem('auth_token', JSON.stringify(token));
+    let url: URL | null = null;
+    if (typeof window !== undefined) {
+      window.localStorage.setItem('auth_token', JSON.stringify(token));
+    }
   }
 
   search(name: String, type: String): Observable<any> {
